@@ -22,9 +22,9 @@ var expect = Code.expect
 var tmx = parseInt(process.env.TIMEOUT_MULTIPLIER || 1, 10)
 
 var seneca = Seneca()
-    .test()
-    .quiet()
-    .use(Plugin)
+  .test()
+  .quiet()
+  .use(Plugin)
 
 var standard = require('@seneca/cache-test')
 
