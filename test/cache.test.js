@@ -9,6 +9,9 @@ var Util = require('util')
 var Lab = require('lab')
 var Code = require('code')
 
+const PluginValidator = require('seneca-plugin-validator')
+const Plugin = require('..')
+
 var Seneca = require('seneca')
 
 var lab = (exports.lab = Lab.script())
@@ -19,11 +22,18 @@ var expect = Code.expect
 var tmx = parseInt(process.env.TIMEOUT_MULTIPLIER || 1, 10)
 
 var seneca = Seneca()
-  .test()
-  .quiet()
-seneca.use('..')
+    .test()
+    .quiet()
+    .use(Plugin)
 
-var standard = require('seneca-cache-test')
+var standard = require('@seneca/cache-test')
+
+lab.test(
+  'validate',
+  Util.promisify(function(x, fin) {
+    PluginValidator(Plugin, module)(fin)
+  })
+)
 
 describe('memcached', function() {
   it('basic', function(done) {

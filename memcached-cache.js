@@ -3,7 +3,7 @@
 
 var Memcached = require('memcached')
 
-module.exports = function(options) {
+module.exports = function memcached(options) {
   var seneca = this
 
   options = seneca.util.deepextend(
@@ -29,6 +29,7 @@ module.exports = function(options) {
       var key = args.key
       var val = args.val
       var expires = args.expires || options.expires
+
       mi[kind](key, val, expires, function(err, out) {
         var result = options.legacy.scalar_results ? key : { key: key }
         cb(err, result)
@@ -46,6 +47,7 @@ module.exports = function(options) {
   function bykey(kind) {
     return function(args, cb) {
       var key = args.key
+
       mi[kind](key, function(err, out) {
         var result
 
@@ -68,6 +70,7 @@ module.exports = function(options) {
     return function(args, cb) {
       var key = args.key
       var val = args.val
+
       mi[kind](key, val, function(err, out) {
         var result = options.legacy.scalar_results ? out : { value: out }
         cb(err, result)

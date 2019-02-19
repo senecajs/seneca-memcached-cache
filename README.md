@@ -36,18 +36,194 @@ seneca.ready(function(err) {
 });
 ```
 
-The full action argument pattern can be a bit tedious, so use a Seneca _pin_ to make things more convenient:
 
-```JavaScript
-var cache = seneca.pin({role:'cache',cmd:'*'})
+<!--START:action-list-->
 
-cache.set({key:'k1', val:'v1'}, function(err){
 
-  cache.get({key:'k1'}, function(err,out){
-    console.log('value = '+out)
-  })
-})
-```
+## Action Patterns
+
+* [cmd:stats,plugin:memcached-cache](#-cmdstatspluginmemcachedcache-)
+* [cmd:get,plugin:memcached-cache](#-cmdgetpluginmemcachedcache-)
+* [cmd:get,role:cache](#-cmdgetrolecache-)
+* [cmd:set,plugin:memcached-cache](#-cmdsetpluginmemcachedcache-)
+* [cmd:set,role:cache](#-cmdsetrolecache-)
+* [cmd:add,plugin:memcached-cache](#-cmdaddpluginmemcachedcache-)
+* [cmd:add,role:cache](#-cmdaddrolecache-)
+* [cmd:delete,plugin:memcached-cache](#-cmddeletepluginmemcachedcache-)
+* [cmd:delete,role:cache](#-cmddeleterolecache-)
+* [cmd:incr,plugin:memcached-cache](#-cmdincrpluginmemcachedcache-)
+* [cmd:incr,role:cache](#-cmdincrrolecache-)
+* [cmd:decr,plugin:memcached-cache](#-cmddecrpluginmemcachedcache-)
+* [cmd:decr,role:cache](#-cmddecrrolecache-)
+* [cmd:replace,plugin:memcached-cache](#-cmdreplacepluginmemcachedcache-)
+* [cmd:append,plugin:memcached-cache](#-cmdappendpluginmemcachedcache-)
+* [cmd:prepend,plugin:memcached-cache](#-cmdprependpluginmemcachedcache-)
+* [cmd:cas,plugin:memcached-cache](#-cmdcaspluginmemcachedcache-)
+* [cmd:gets,plugin:memcached-cache](#-cmdgetspluginmemcachedcache-)
+* [cmd:flush,plugin:memcached-cache](#-cmdflushpluginmemcachedcache-)
+* [get:native,role:cache](#-getnativerolecache-)
+* [init:memcached-cache](#-initmemcachedcache-)
+
+
+<!--END:action-list-->
+
+<!--START:action-desc-->
+
+
+## Action Descriptions
+
+### &laquo; `cmd:stats,plugin:memcached-cache` &raquo;
+
+No description provided.
+
+
+
+----------
+### &laquo; `cmd:get,plugin:memcached-cache` &raquo;
+
+No description provided.
+
+
+
+----------
+### &laquo; `cmd:get,role:cache` &raquo;
+
+No description provided.
+
+
+
+----------
+### &laquo; `cmd:set,plugin:memcached-cache` &raquo;
+
+No description provided.
+
+
+
+----------
+### &laquo; `cmd:set,role:cache` &raquo;
+
+No description provided.
+
+
+
+----------
+### &laquo; `cmd:add,plugin:memcached-cache` &raquo;
+
+No description provided.
+
+
+
+----------
+### &laquo; `cmd:add,role:cache` &raquo;
+
+No description provided.
+
+
+
+----------
+### &laquo; `cmd:delete,plugin:memcached-cache` &raquo;
+
+No description provided.
+
+
+
+----------
+### &laquo; `cmd:delete,role:cache` &raquo;
+
+No description provided.
+
+
+
+----------
+### &laquo; `cmd:incr,plugin:memcached-cache` &raquo;
+
+No description provided.
+
+
+
+----------
+### &laquo; `cmd:incr,role:cache` &raquo;
+
+No description provided.
+
+
+
+----------
+### &laquo; `cmd:decr,plugin:memcached-cache` &raquo;
+
+No description provided.
+
+
+
+----------
+### &laquo; `cmd:decr,role:cache` &raquo;
+
+No description provided.
+
+
+
+----------
+### &laquo; `cmd:replace,plugin:memcached-cache` &raquo;
+
+No description provided.
+
+
+
+----------
+### &laquo; `cmd:append,plugin:memcached-cache` &raquo;
+
+No description provided.
+
+
+
+----------
+### &laquo; `cmd:prepend,plugin:memcached-cache` &raquo;
+
+No description provided.
+
+
+
+----------
+### &laquo; `cmd:cas,plugin:memcached-cache` &raquo;
+
+No description provided.
+
+
+
+----------
+### &laquo; `cmd:gets,plugin:memcached-cache` &raquo;
+
+No description provided.
+
+
+
+----------
+### &laquo; `cmd:flush,plugin:memcached-cache` &raquo;
+
+No description provided.
+
+
+
+----------
+### &laquo; `get:native,role:cache` &raquo;
+
+No description provided.
+
+
+
+----------
+### &laquo; `init:memcached-cache` &raquo;
+
+No description provided.
+
+
+
+----------
+
+
+<!--END:action-desc-->
+
+
 ## Install
 
 ```sh
