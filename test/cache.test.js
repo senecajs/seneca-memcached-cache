@@ -6,8 +6,8 @@
 var Assert = require('assert')
 var Util = require('util')
 
-var Lab = require('lab')
-var Code = require('code')
+var Lab = require('@hapi/lab')
+var Code = require('@hapi/code')
 
 const PluginValidator = require('seneca-plugin-validator')
 const Plugin = require('..')

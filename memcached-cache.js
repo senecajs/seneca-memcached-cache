@@ -87,6 +87,8 @@ module.exports = function memcached(options) {
     }
   }
 
+  cmds.clear = noargs('flush')
+  
   cmds.flush = noargs('flush')
   cmds.stats = noargs('stats')
 
@@ -107,6 +109,7 @@ module.exports = function memcached(options) {
   seneca.add({ role: role, cmd: 'delete' }, cmds.delete)
   seneca.add({ role: role, cmd: 'incr' }, cmds.incr)
   seneca.add({ role: role, cmd: 'decr' }, cmds.decr)
+  seneca.add({ role: role, cmd: 'clear' }, cmds.clear)
 
   seneca.add({ role: role, get: 'native' }, function(args, done) {
     done(null, mi)
