@@ -55,6 +55,7 @@ seneca.ready(function(err) {
 * [cmd:incr,role:cache](#-cmdincrrolecache-)
 * [cmd:decr,plugin:memcached-cache](#-cmddecrpluginmemcachedcache-)
 * [cmd:decr,role:cache](#-cmddecrrolecache-)
+* [cmd:clear,role:cache](#-cmdclearrolecache-)
 * [cmd:replace,plugin:memcached-cache](#-cmdreplacepluginmemcachedcache-)
 * [cmd:append,plugin:memcached-cache](#-cmdappendpluginmemcachedcache-)
 * [cmd:prepend,plugin:memcached-cache](#-cmdprependpluginmemcachedcache-)
@@ -157,6 +158,13 @@ No description provided.
 
 ----------
 ### &laquo; `cmd:decr,role:cache` &raquo;
+
+No description provided.
+
+
+
+----------
+### &laquo; `cmd:clear,role:cache` &raquo;
 
 No description provided.
 

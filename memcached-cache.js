@@ -88,7 +88,7 @@ module.exports = function memcached(options) {
   }
 
   cmds.clear = noargs('flush')
-  
+
   cmds.flush = noargs('flush')
   cmds.stats = noargs('stats')
 
