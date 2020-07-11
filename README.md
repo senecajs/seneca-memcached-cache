@@ -57,7 +57,7 @@ Set plugin options when loading with:
 ```js
 
 
-seneca.use('memcached_cache', { name: value, ... })
+seneca.use('memcached-cache', { name: value, ... })
 
 
 ```
@@ -76,20 +76,20 @@ seneca.use('memcached_cache', { name: value, ... })
 
 ## Action Patterns
 
-* [cmd:add,plugin:memcached_cache](#-cmdaddpluginmemcached_cache-)
-* [cmd:append,plugin:memcached_cache](#-cmdappendpluginmemcached_cache-)
-* [cmd:cas,plugin:memcached_cache](#-cmdcaspluginmemcached_cache-)
-* [cmd:decr,plugin:memcached_cache](#-cmddecrpluginmemcached_cache-)
-* [cmd:delete,plugin:memcached_cache](#-cmddeletepluginmemcached_cache-)
-* [cmd:flush,plugin:memcached_cache](#-cmdflushpluginmemcached_cache-)
-* [cmd:get,plugin:memcached_cache](#-cmdgetpluginmemcached_cache-)
-* [cmd:gets,plugin:memcached_cache](#-cmdgetspluginmemcached_cache-)
-* [cmd:incr,plugin:memcached_cache](#-cmdincrpluginmemcached_cache-)
-* [cmd:prepend,plugin:memcached_cache](#-cmdprependpluginmemcached_cache-)
-* [cmd:replace,plugin:memcached_cache](#-cmdreplacepluginmemcached_cache-)
-* [cmd:set,plugin:memcached_cache](#-cmdsetpluginmemcached_cache-)
-* [cmd:stats,plugin:memcached_cache](#-cmdstatspluginmemcached_cache-)
-* [init:memcached_cache](#-initmemcached_cache-)
+* [cmd:add,plugin:memcached-cache](#-cmdaddpluginmemcachedcache-)
+* [cmd:append,plugin:memcached-cache](#-cmdappendpluginmemcachedcache-)
+* [cmd:cas,plugin:memcached-cache](#-cmdcaspluginmemcachedcache-)
+* [cmd:decr,plugin:memcached-cache](#-cmddecrpluginmemcachedcache-)
+* [cmd:delete,plugin:memcached-cache](#-cmddeletepluginmemcachedcache-)
+* [cmd:flush,plugin:memcached-cache](#-cmdflushpluginmemcachedcache-)
+* [cmd:get,plugin:memcached-cache](#-cmdgetpluginmemcachedcache-)
+* [cmd:gets,plugin:memcached-cache](#-cmdgetspluginmemcachedcache-)
+* [cmd:incr,plugin:memcached-cache](#-cmdincrpluginmemcachedcache-)
+* [cmd:prepend,plugin:memcached-cache](#-cmdprependpluginmemcachedcache-)
+* [cmd:replace,plugin:memcached-cache](#-cmdreplacepluginmemcachedcache-)
+* [cmd:set,plugin:memcached-cache](#-cmdsetpluginmemcachedcache-)
+* [cmd:stats,plugin:memcached-cache](#-cmdstatspluginmemcachedcache-)
+* [init:memcached-cache](#-initmemcachedcache-)
 * [role:cache,cmd:add](#-rolecachecmdadd-)
 * [role:cache,cmd:clear](#-rolecachecmdclear-)
 * [role:cache,cmd:decr](#-rolecachecmddecr-)
@@ -107,98 +107,98 @@ seneca.use('memcached_cache', { name: value, ... })
 
 ## Action Descriptions
 
-### &laquo; `cmd:add,plugin:memcached_cache` &raquo;
+### &laquo; `cmd:add,plugin:memcached-cache` &raquo;
 
 No description provided.
 
 
 
 ----------
-### &laquo; `cmd:append,plugin:memcached_cache` &raquo;
+### &laquo; `cmd:append,plugin:memcached-cache` &raquo;
 
 No description provided.
 
 
 
 ----------
-### &laquo; `cmd:cas,plugin:memcached_cache` &raquo;
+### &laquo; `cmd:cas,plugin:memcached-cache` &raquo;
 
 No description provided.
 
 
 
 ----------
-### &laquo; `cmd:decr,plugin:memcached_cache` &raquo;
+### &laquo; `cmd:decr,plugin:memcached-cache` &raquo;
 
 No description provided.
 
 
 
 ----------
-### &laquo; `cmd:delete,plugin:memcached_cache` &raquo;
+### &laquo; `cmd:delete,plugin:memcached-cache` &raquo;
 
 No description provided.
 
 
 
 ----------
-### &laquo; `cmd:flush,plugin:memcached_cache` &raquo;
+### &laquo; `cmd:flush,plugin:memcached-cache` &raquo;
 
 No description provided.
 
 
 
 ----------
-### &laquo; `cmd:get,plugin:memcached_cache` &raquo;
+### &laquo; `cmd:get,plugin:memcached-cache` &raquo;
 
 No description provided.
 
 
 
 ----------
-### &laquo; `cmd:gets,plugin:memcached_cache` &raquo;
+### &laquo; `cmd:gets,plugin:memcached-cache` &raquo;
 
 No description provided.
 
 
 
 ----------
-### &laquo; `cmd:incr,plugin:memcached_cache` &raquo;
+### &laquo; `cmd:incr,plugin:memcached-cache` &raquo;
 
 No description provided.
 
 
 
 ----------
-### &laquo; `cmd:prepend,plugin:memcached_cache` &raquo;
+### &laquo; `cmd:prepend,plugin:memcached-cache` &raquo;
 
 No description provided.
 
 
 
 ----------
-### &laquo; `cmd:replace,plugin:memcached_cache` &raquo;
+### &laquo; `cmd:replace,plugin:memcached-cache` &raquo;
 
 No description provided.
 
 
 
 ----------
-### &laquo; `cmd:set,plugin:memcached_cache` &raquo;
+### &laquo; `cmd:set,plugin:memcached-cache` &raquo;
 
 No description provided.
 
 
 
 ----------
-### &laquo; `cmd:stats,plugin:memcached_cache` &raquo;
+### &laquo; `cmd:stats,plugin:memcached-cache` &raquo;
 
 No description provided.
 
 
 
 ----------
-### &laquo; `init:memcached_cache` &raquo;
+### &laquo; `init:memcached-cache` &raquo;
 
 No description provided.
 

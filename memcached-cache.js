@@ -19,7 +19,7 @@ module.exports = function memcached_cache(options) {
   )
 
   var cmds = {}
-  var name = 'memcached_cache'
+  var name = 'memcached-cache'
   var role = 'cache'
 
   var mi
