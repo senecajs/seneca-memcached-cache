@@ -6,7 +6,7 @@
 [![Coveralls][BadgeCoveralls]][Coveralls]
 [![DeepScan grade](https://deepscan.io/api/teams/5016/projects/12817/branches/203963/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=5016&pid=12817&bid=203963)
 [![Maintainability](https://api.codeclimate.com/v1/badges/ede9a6d19d8c3a75315a/maintainability)](https://codeclimate.com/github/senecajs/seneca-memcached-cache/maintainability)
-[![dependencies Status](https://david-dm.org/senecajs/seneca-redis-cache/status.svg)](https://david-dm.org/senecajs/seneca-redis-cache)
+[![dependencies Status](https://david-dm.org/senecajs/seneca-memcached-cache/status.svg)](https://david-dm.org/senecajs/seneca-memcached-cache)
 [![Gitter][gitter-badge]][gitter-url]
 
 
