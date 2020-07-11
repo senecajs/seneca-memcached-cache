@@ -6,8 +6,10 @@ env:
 
 node_js:
   - '10'
-  - '8'
-
+  - '12'
+  - '13'
+  - '14'
+  
 before_script:
   - npm uninstall seneca
   - npm install $SENECA_VER

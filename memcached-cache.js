@@ -52,7 +52,7 @@ module.exports = function memcached(options) {
         var result
 
         if (kind === 'delete') {
-          var result = options.legacy.scalar_results ? key : { key: key }
+          result = options.legacy.scalar_results ? key : { key: key }
           return cb(err, result)
         }
 

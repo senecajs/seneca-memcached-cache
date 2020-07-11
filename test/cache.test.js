@@ -30,9 +30,7 @@ var standard = require('@seneca/cache-test')
 
 lab.test(
   'validate',
-  Util.promisify(function(x, fin) {
-    PluginValidator(Plugin, module)(fin)
-  })
+  PluginValidator(Plugin, module)
 )
 
 describe('memcached', function() {
@@ -158,6 +156,17 @@ describe('memcached', function() {
       cb()
     })
   })
+
+  lab.it('close', async () => {
+    var seneca = Seneca()
+        .test()
+        .quiet()
+        .use(Plugin)
+
+    await seneca.ready()
+    await seneca.close()
+  })
+
 })
 
 function make_it(lab) {

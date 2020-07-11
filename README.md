@@ -1,5 +1,15 @@
 # seneca-memcached
 
+
+[![Npm][BadgeNpm]][Npm]
+[![Travis][BadgeTravis]][Travis]
+[![Coveralls][BadgeCoveralls]][Coveralls]
+[![DeepScan grade](https://deepscan.io/api/teams/5016/projects/12817/branches/203963/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=5016&pid=12817&bid=203963)
+[![Maintainability](https://api.codeclimate.com/v1/badges/ede9a6d19d8c3a75315a/maintainability)](https://codeclimate.com/github/senecajs/seneca-memcached-cache/maintainability)
+[![dependencies Status](https://david-dm.org/senecajs/seneca-redis-cache/status.svg)](https://david-dm.org/senecajs/seneca-redis-cache)
+[![Gitter][gitter-badge]][gitter-url]
+
+
 ### Node.js Seneca Memcached module.
 
 This module is a plugin for the [Seneca framework](http://senecajs.org). It provides a set of common caching actions (get, set, etc), backed by memcached.
@@ -37,33 +47,15 @@ seneca.ready(function(err) {
 ```
 
 
+<!--START:options-->
+<!--END:options-->
+
+
 <!--START:action-list-->
 
 
 ## Action Patterns
 
-* [cmd:stats,plugin:memcached-cache](#-cmdstatspluginmemcachedcache-)
-* [cmd:get,plugin:memcached-cache](#-cmdgetpluginmemcachedcache-)
-* [cmd:get,role:cache](#-cmdgetrolecache-)
-* [cmd:set,plugin:memcached-cache](#-cmdsetpluginmemcachedcache-)
-* [cmd:set,role:cache](#-cmdsetrolecache-)
-* [cmd:add,plugin:memcached-cache](#-cmdaddpluginmemcachedcache-)
-* [cmd:add,role:cache](#-cmdaddrolecache-)
-* [cmd:delete,plugin:memcached-cache](#-cmddeletepluginmemcachedcache-)
-* [cmd:delete,role:cache](#-cmddeleterolecache-)
-* [cmd:incr,plugin:memcached-cache](#-cmdincrpluginmemcachedcache-)
-* [cmd:incr,role:cache](#-cmdincrrolecache-)
-* [cmd:decr,plugin:memcached-cache](#-cmddecrpluginmemcachedcache-)
-* [cmd:decr,role:cache](#-cmddecrrolecache-)
-* [cmd:clear,role:cache](#-cmdclearrolecache-)
-* [cmd:replace,plugin:memcached-cache](#-cmdreplacepluginmemcachedcache-)
-* [cmd:append,plugin:memcached-cache](#-cmdappendpluginmemcachedcache-)
-* [cmd:prepend,plugin:memcached-cache](#-cmdprependpluginmemcachedcache-)
-* [cmd:cas,plugin:memcached-cache](#-cmdcaspluginmemcachedcache-)
-* [cmd:gets,plugin:memcached-cache](#-cmdgetspluginmemcachedcache-)
-* [cmd:flush,plugin:memcached-cache](#-cmdflushpluginmemcachedcache-)
-* [get:native,role:cache](#-getnativerolecache-)
-* [init:memcached-cache](#-initmemcachedcache-)
 
 
 <!--END:action-list-->
@@ -73,160 +65,6 @@ seneca.ready(function(err) {
 
 ## Action Descriptions
 
-### &laquo; `cmd:stats,plugin:memcached-cache` &raquo;
-
-No description provided.
-
-
-
-----------
-### &laquo; `cmd:get,plugin:memcached-cache` &raquo;
-
-No description provided.
-
-
-
-----------
-### &laquo; `cmd:get,role:cache` &raquo;
-
-No description provided.
-
-
-
-----------
-### &laquo; `cmd:set,plugin:memcached-cache` &raquo;
-
-No description provided.
-
-
-
-----------
-### &laquo; `cmd:set,role:cache` &raquo;
-
-No description provided.
-
-
-
-----------
-### &laquo; `cmd:add,plugin:memcached-cache` &raquo;
-
-No description provided.
-
-
-
-----------
-### &laquo; `cmd:add,role:cache` &raquo;
-
-No description provided.
-
-
-
-----------
-### &laquo; `cmd:delete,plugin:memcached-cache` &raquo;
-
-No description provided.
-
-
-
-----------
-### &laquo; `cmd:delete,role:cache` &raquo;
-
-No description provided.
-
-
-
-----------
-### &laquo; `cmd:incr,plugin:memcached-cache` &raquo;
-
-No description provided.
-
-
-
-----------
-### &laquo; `cmd:incr,role:cache` &raquo;
-
-No description provided.
-
-
-
-----------
-### &laquo; `cmd:decr,plugin:memcached-cache` &raquo;
-
-No description provided.
-
-
-
-----------
-### &laquo; `cmd:decr,role:cache` &raquo;
-
-No description provided.
-
-
-
-----------
-### &laquo; `cmd:clear,role:cache` &raquo;
-
-No description provided.
-
-
-
-----------
-### &laquo; `cmd:replace,plugin:memcached-cache` &raquo;
-
-No description provided.
-
-
-
-----------
-### &laquo; `cmd:append,plugin:memcached-cache` &raquo;
-
-No description provided.
-
-
-
-----------
-### &laquo; `cmd:prepend,plugin:memcached-cache` &raquo;
-
-No description provided.
-
-
-
-----------
-### &laquo; `cmd:cas,plugin:memcached-cache` &raquo;
-
-No description provided.
-
-
-
-----------
-### &laquo; `cmd:gets,plugin:memcached-cache` &raquo;
-
-No description provided.
-
-
-
-----------
-### &laquo; `cmd:flush,plugin:memcached-cache` &raquo;
-
-No description provided.
-
-
-
-----------
-### &laquo; `get:native,role:cache` &raquo;
-
-No description provided.
-
-
-
-----------
-### &laquo; `init:memcached-cache` &raquo;
-
-No description provided.
-
-
-
-----------
 
 
 <!--END:action-desc-->
@@ -284,3 +122,13 @@ seneca.use('memcached',{
 cd test
 mocha cache.test.js --seneca.log.print
 ```
+
+
+[BadgeCoveralls]: https://coveralls.io/repos/senecajs/seneca-memcached-cache/badge.svg?branch=master&service=github
+[BadgeNpm]: https://badge.fury.io/js/%40seneca%2Fmemcached-cache.svg
+[BadgeTravis]: https://travis-ci.org/senecajs/seneca-memcached-cache.svg?branch=master
+[Coveralls]: https://coveralls.io/github/senecajs/seneca-memcached-cache?branch=master
+[Npm]: https://www.npmjs.com/package/seneca-memcached-cache
+[Travis]: https://travis-ci.org/senecajs/seneca-memcached-cache?branch=master
+[gitter-badge]: https://badges.gitter.im/Join%20Chat.svg
+[gitter-url]: https://gitter.im/senecajs/seneca
