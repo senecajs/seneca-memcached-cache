@@ -21,32 +21,26 @@ var expect = Code.expect
 
 var tmx = parseInt(process.env.TIMEOUT_MULTIPLIER || 1, 10)
 
-var seneca = Seneca()
-  .test()
-  .quiet()
-  .use(Plugin)
+var seneca = Seneca().test().quiet().use(Plugin)
 
 var standard = require('@seneca/cache-test')
 
-lab.test(
-  'validate',
-  PluginValidator(Plugin, module)
-)
+lab.test('validate', PluginValidator(Plugin, module))
 
-describe('memcached', function() {
-  it('basic', function(done) {
+describe('memcached', function () {
+  it('basic', function (done) {
     standard.basictest(seneca, done)
   })
 
-  it('init', function(cb) {
+  it('init', function (cb) {
     seneca.act('role:cache,cmd:delete', { key: 'a1' })
     seneca.act('role:cache,cmd:delete', { key: 'c1' })
     seneca.act('role:cache,cmd:delete', { key: 'd1' })
     cb()
   })
 
-  it('set1', function(cb) {
-    seneca.act('role:cache,cmd:set', { key: 'a1', val: 'b1' }, function(
+  it('set1', function (cb) {
+    seneca.act('role:cache,cmd:set', { key: 'a1', val: 'b1' }, function (
       err,
       out
     ) {
@@ -56,24 +50,27 @@ describe('memcached', function() {
     })
   })
 
-  it('get1', function(cb) {
-    seneca.act('role:cache,cmd:get', { key: 'a1' }, function(err, out) {
+  it('get1', function (cb) {
+    seneca.act('role:cache,cmd:get', { key: 'a1' }, function (err, out) {
       Assert.ok(null == err)
       Assert.equal(out.value, 'b1')
       cb()
     })
   })
 
-  it('set2', function(cb) {
-    seneca.act('role:cache,cmd:set', { key: 'c1', val: 0 }, function(err, out) {
+  it('set2', function (cb) {
+    seneca.act('role:cache,cmd:set', { key: 'c1', val: 0 }, function (
+      err,
+      out
+    ) {
       Assert.ok(null == err)
       Assert.ok(out.key, 'c1')
       cb()
     })
   })
 
-  it('incr1', function(cb) {
-    seneca.act('role:cache,cmd:incr', { key: 'c1', val: 1 }, function(
+  it('incr1', function (cb) {
+    seneca.act('role:cache,cmd:incr', { key: 'c1', val: 1 }, function (
       err,
       out
     ) {
@@ -83,16 +80,16 @@ describe('memcached', function() {
     })
   })
 
-  it('get2', function(cb) {
-    seneca.act('role:cache,cmd:get', { key: 'c1' }, function(err, out) {
+  it('get2', function (cb) {
+    seneca.act('role:cache,cmd:get', { key: 'c1' }, function (err, out) {
       Assert.ok(null == err)
       Assert.equal(1, out.value)
       cb()
     })
   })
 
-  it('incr2', function(cb) {
-    seneca.act('role:cache,cmd:incr', { key: 'c1', val: 1 }, function(
+  it('incr2', function (cb) {
+    seneca.act('role:cache,cmd:incr', { key: 'c1', val: 1 }, function (
       err,
       out
     ) {
@@ -102,24 +99,24 @@ describe('memcached', function() {
     })
   })
 
-  it('get3', function(cb) {
-    seneca.act('role:cache,cmd:get', { key: 'c1' }, function(err, out) {
+  it('get3', function (cb) {
+    seneca.act('role:cache,cmd:get', { key: 'c1' }, function (err, out) {
       Assert.ok(null == err)
       Assert.equal(2, out.value)
       cb()
     })
   })
 
-  it('delete', function(cb) {
-    seneca.act('role:cache,cmd:delete', { key: 'c1' }, function(err, out) {
+  it('delete', function (cb) {
+    seneca.act('role:cache,cmd:delete', { key: 'c1' }, function (err, out) {
       Assert.ok(null == err)
       Assert.equal(out.key, 'c1')
       cb()
     })
   })
 
-  it('add', function(cb) {
-    seneca.act('role:cache,cmd:add', { key: 'd1', val: 'e1' }, function(
+  it('add', function (cb) {
+    seneca.act('role:cache,cmd:add', { key: 'd1', val: 'e1' }, function (
       err,
       out
     ) {
@@ -129,8 +126,8 @@ describe('memcached', function() {
     })
   })
 
-  it("won't add if key already exists", function(cb) {
-    seneca.act('role:cache,cmd:add', { key: 'd1', val: 'e2' }, function(
+  it("won't add if key already exists", function (cb) {
+    seneca.act('role:cache,cmd:add', { key: 'd1', val: 'e2' }, function (
       err,
       out
     ) {
@@ -139,16 +136,16 @@ describe('memcached', function() {
     })
   })
 
-  it('noop if key does not exist', function(cb) {
-    seneca.act('role:cache,cmd:delete', { key: 'zzz' }, function(err, out) {
+  it('noop if key does not exist', function (cb) {
+    seneca.act('role:cache,cmd:delete', { key: 'zzz' }, function (err, out) {
       Assert.ok(null == err)
       Assert.equal(out.key, 'zzz')
       cb()
     })
   })
 
-  it("won't incr unless value is an integer", function(cb) {
-    seneca.act('role:cache,cmd:incr', { key: 'd1', val: 1 }, function(
+  it("won't incr unless value is an integer", function (cb) {
+    seneca.act('role:cache,cmd:incr', { key: 'd1', val: 1 }, function (
       err,
       out
     ) {
@@ -158,15 +155,11 @@ describe('memcached', function() {
   })
 
   lab.it('close', async () => {
-    var seneca = Seneca()
-        .test()
-        .quiet()
-        .use(Plugin)
+    var seneca = Seneca().test().quiet().use(Plugin)
 
     await seneca.ready()
     await seneca.close()
   })
-
 })
 
 function make_it(lab) {
@@ -179,7 +172,7 @@ function make_it(lab) {
     lab.it(
       name,
       opts,
-      Util.promisify(function(x, fin) {
+      Util.promisify(function (x, fin) {
         func(fin)
       })
     )

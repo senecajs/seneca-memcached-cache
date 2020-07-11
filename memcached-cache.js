@@ -11,8 +11,8 @@ module.exports = function memcached(options) {
       expires: 3600,
       servers: ['127.0.0.1:11211'],
       legacy: {
-        scalar_results: false
-      }
+        scalar_results: false,
+      },
       // other options as per memcached module
     },
     options
@@ -25,12 +25,12 @@ module.exports = function memcached(options) {
   var mi
 
   function setter(kind) {
-    return function(args, cb) {
+    return function (args, cb) {
       var key = args.key
       var val = args.val
       var expires = args.expires || options.expires
 
-      mi[kind](key, val, expires, function(err, out) {
+      mi[kind](key, val, expires, function (err, out) {
         var result = options.legacy.scalar_results ? key : { key: key }
         cb(err, result)
       })
@@ -45,10 +45,10 @@ module.exports = function memcached(options) {
   cmds.prepend = setter('prepend')
 
   function bykey(kind) {
-    return function(args, cb) {
+    return function (args, cb) {
       var key = args.key
 
-      mi[kind](key, function(err, out) {
+      mi[kind](key, function (err, out) {
         var result
 
         if (kind === 'delete') {
@@ -67,11 +67,11 @@ module.exports = function memcached(options) {
   cmds.delete = bykey('delete')
 
   function incrdecr(kind) {
-    return function(args, cb) {
+    return function (args, cb) {
       var key = args.key
       var val = args.val
 
-      mi[kind](key, val, function(err, out) {
+      mi[kind](key, val, function (err, out) {
         var result = options.legacy.scalar_results ? out : { value: out }
         cb(err, result)
       })
@@ -82,7 +82,7 @@ module.exports = function memcached(options) {
   cmds.decr = incrdecr('decrement')
 
   function noargs(kind) {
-    return function(args, cb) {
+    return function (args, cb) {
       mi[kind](cb)
     }
   }
@@ -92,7 +92,7 @@ module.exports = function memcached(options) {
   cmds.flush = noargs('flush')
   cmds.stats = noargs('stats')
 
-  cmds.close = function(args, done) {
+  cmds.close = function (args, done) {
     var closer = this
     try {
       mi.end()
@@ -111,7 +111,7 @@ module.exports = function memcached(options) {
   seneca.add({ role: role, cmd: 'decr' }, cmds.decr)
   seneca.add({ role: role, cmd: 'clear' }, cmds.clear)
 
-  seneca.add({ role: role, get: 'native' }, function(args, done) {
+  seneca.add({ role: role, get: 'native' }, function (args, done) {
     done(null, mi)
   })
 
@@ -133,7 +133,7 @@ module.exports = function memcached(options) {
   seneca.add({ plugin: name, cmd: 'stats' }, cmds.stats)
   seneca.add({ plugin: name, cmd: 'flush' }, cmds.flush)
 
-  seneca.add({ init: name }, function(args, done) {
+  seneca.add({ init: name }, function (args, done) {
     mi = new Memcached(options.servers, options)
     done()
   })
