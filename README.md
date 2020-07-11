@@ -18,8 +18,6 @@ It also exposes all the memcached specific actions (append, prepend, etc).
 By moving cache operations into Seneca, you can change your cache implementation or business rules at a later point.
 For example, you might decide to send certain kinds of keys to a different cache mechanism, such as redis.
 
-[![Build Status](https://travis-ci.org/darsee/seneca-memcached-cache.svg?branch=master)](https://travis-ci.org/darsee/seneca-memcached-cache)
-
 ### Support
 
 If you're using this module, feel free to contact [@rjrodger](http://twitter.com/rjrodger) or [@darsee](http://twitter.com/darsee) on twitter if you have any questions! :)
@@ -48,6 +46,28 @@ seneca.ready(function(err) {
 
 
 <!--START:options-->
+
+
+## Options
+
+* `` : object <i><small>"&nbsp;"</small></i>
+
+
+Set plugin options when loading with:
+```js
+
+
+seneca.use('memcached_cache', { name: value, ... })
+
+
+```
+
+
+<small>Note: <code>foo.bar</code> in the list above means 
+<code>{ foo: { bar: ... } }</code></small> 
+
+
+
 <!--END:options-->
 
 
@@ -56,6 +76,28 @@ seneca.ready(function(err) {
 
 ## Action Patterns
 
+* [cmd:add,plugin:memcached_cache](#-cmdaddpluginmemcached_cache-)
+* [cmd:append,plugin:memcached_cache](#-cmdappendpluginmemcached_cache-)
+* [cmd:cas,plugin:memcached_cache](#-cmdcaspluginmemcached_cache-)
+* [cmd:decr,plugin:memcached_cache](#-cmddecrpluginmemcached_cache-)
+* [cmd:delete,plugin:memcached_cache](#-cmddeletepluginmemcached_cache-)
+* [cmd:flush,plugin:memcached_cache](#-cmdflushpluginmemcached_cache-)
+* [cmd:get,plugin:memcached_cache](#-cmdgetpluginmemcached_cache-)
+* [cmd:gets,plugin:memcached_cache](#-cmdgetspluginmemcached_cache-)
+* [cmd:incr,plugin:memcached_cache](#-cmdincrpluginmemcached_cache-)
+* [cmd:prepend,plugin:memcached_cache](#-cmdprependpluginmemcached_cache-)
+* [cmd:replace,plugin:memcached_cache](#-cmdreplacepluginmemcached_cache-)
+* [cmd:set,plugin:memcached_cache](#-cmdsetpluginmemcached_cache-)
+* [cmd:stats,plugin:memcached_cache](#-cmdstatspluginmemcached_cache-)
+* [init:memcached_cache](#-initmemcached_cache-)
+* [role:cache,cmd:add](#-rolecachecmdadd-)
+* [role:cache,cmd:clear](#-rolecachecmdclear-)
+* [role:cache,cmd:decr](#-rolecachecmddecr-)
+* [role:cache,cmd:delete](#-rolecachecmddelete-)
+* [role:cache,cmd:get](#-rolecachecmdget-)
+* [role:cache,cmd:incr](#-rolecachecmdincr-)
+* [role:cache,cmd:set](#-rolecachecmdset-)
+* [role:cache,get:native](#-rolecachegetnative-)
 
 
 <!--END:action-list-->
@@ -65,6 +107,160 @@ seneca.ready(function(err) {
 
 ## Action Descriptions
 
+### &laquo; `cmd:add,plugin:memcached_cache` &raquo;
+
+No description provided.
+
+
+
+----------
+### &laquo; `cmd:append,plugin:memcached_cache` &raquo;
+
+No description provided.
+
+
+
+----------
+### &laquo; `cmd:cas,plugin:memcached_cache` &raquo;
+
+No description provided.
+
+
+
+----------
+### &laquo; `cmd:decr,plugin:memcached_cache` &raquo;
+
+No description provided.
+
+
+
+----------
+### &laquo; `cmd:delete,plugin:memcached_cache` &raquo;
+
+No description provided.
+
+
+
+----------
+### &laquo; `cmd:flush,plugin:memcached_cache` &raquo;
+
+No description provided.
+
+
+
+----------
+### &laquo; `cmd:get,plugin:memcached_cache` &raquo;
+
+No description provided.
+
+
+
+----------
+### &laquo; `cmd:gets,plugin:memcached_cache` &raquo;
+
+No description provided.
+
+
+
+----------
+### &laquo; `cmd:incr,plugin:memcached_cache` &raquo;
+
+No description provided.
+
+
+
+----------
+### &laquo; `cmd:prepend,plugin:memcached_cache` &raquo;
+
+No description provided.
+
+
+
+----------
+### &laquo; `cmd:replace,plugin:memcached_cache` &raquo;
+
+No description provided.
+
+
+
+----------
+### &laquo; `cmd:set,plugin:memcached_cache` &raquo;
+
+No description provided.
+
+
+
+----------
+### &laquo; `cmd:stats,plugin:memcached_cache` &raquo;
+
+No description provided.
+
+
+
+----------
+### &laquo; `init:memcached_cache` &raquo;
+
+No description provided.
+
+
+
+----------
+### &laquo; `role:cache,cmd:add` &raquo;
+
+No description provided.
+
+
+
+----------
+### &laquo; `role:cache,cmd:clear` &raquo;
+
+No description provided.
+
+
+
+----------
+### &laquo; `role:cache,cmd:decr` &raquo;
+
+No description provided.
+
+
+
+----------
+### &laquo; `role:cache,cmd:delete` &raquo;
+
+No description provided.
+
+
+
+----------
+### &laquo; `role:cache,cmd:get` &raquo;
+
+No description provided.
+
+
+
+----------
+### &laquo; `role:cache,cmd:incr` &raquo;
+
+No description provided.
+
+
+
+----------
+### &laquo; `role:cache,cmd:set` &raquo;
+
+No description provided.
+
+
+
+----------
+### &laquo; `role:cache,get:native` &raquo;
+
+No description provided.
+
+
+
+----------
 
 
 <!--END:action-desc-->

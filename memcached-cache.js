@@ -3,7 +3,7 @@
 
 var Memcached = require('memcached')
 
-module.exports = function memcached(options) {
+module.exports = function memcached_cache(options) {
   var seneca = this
 
   options = seneca.util.deepextend(
@@ -19,7 +19,7 @@ module.exports = function memcached(options) {
   )
 
   var cmds = {}
-  var name = 'memcached-cache'
+  var name = 'memcached_cache'
   var role = 'cache'
 
   var mi

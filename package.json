@@ -1,6 +1,6 @@
 {
   "name": "@seneca/memcached-cache",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "memcached plugin for seneca",
   "main": "memcached-cache.js",
   "scripts": {
@@ -36,9 +36,9 @@
     "@hapi/code": "^8.0.1",
     "@hapi/lab": "^22.0.4",
     "@seneca/cache-test": "^2.0.0",
+    "@seneca/doc": "^4.0.0",
     "prettier": "^2.0.5",
     "seneca": "plugin",
-    "seneca-doc": "^2.1.3",
     "seneca-plugin-validator": "^0.6.1"
   },
   "files": [
