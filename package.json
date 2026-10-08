@@ -4,7 +4,7 @@
   "description": "memcached plugin for seneca",
   "main": "memcached-cache.js",
   "scripts": {
-    "test": "lab -v -P test -t 80 -l",
+    "test": "lab -v -P test -t 80",
     "doc": "seneca-doc",
     "prettier": "prettier --write --no-semi --single-quote *.js test/*.js",
     "clean": "rm -rf node_modules package-lock.json yarn.lock",
@@ -12,7 +12,7 @@
     "repo-tag": "REPO_VERSION=`node -e \"console.log(require('./package').version)\"` && echo TAG: v$REPO_VERSION && git commit -a -m v$REPO_VERSION && git push && git tag v$REPO_VERSION && git push --tags;",
     "repo-publish": "npm run clean && npm install --registry http://registry.npmjs.org && npm run repo-publish-quick",
     "repo-publish-quick": "npm run prettier && npm test && npm run doc && npm run repo-tag && npm publish --registry http://registry.npmjs.org --access public",
-    "test-cov-html": "lab -v -P test -t 80 -l -r console -o stdout -r html -o test/coverage.html",
+    "test-cov-html": "lab -v -P test -t 80 -r console -o stdout -r html -o test/coverage.html",
     "services:up": "docker compose up -d --wait",
     "services:down": "docker compose down -v"
   },

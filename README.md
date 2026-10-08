@@ -23,8 +23,9 @@ on Node.js 24 and 22.
 npm install seneca @seneca/memcached-cache
 ```
 
-You also need a memcached server. `npm run services:up` starts one with
-Docker on host port 11311.
+You also need a memcached server, for example
+`docker run -d -p 11211:11211 memcached:1.6-alpine`. In a clone of this
+repository, `npm run services:up` starts one on host port 11311 for the tests.
 
 ## Quick Example
 
