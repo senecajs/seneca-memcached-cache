@@ -1,0 +1,61 @@
+From 7757335883f8a289247cc46ae39f1fe9d8ae3a03 Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Thu, 8 Oct 2026 11:49:30 +0000
+Subject: [PATCH] ci: run the build on master with a memcached service
+ container
+
+The default branch is master but the workflow only triggered on main.
+Run on Ubuntu with Node 24 and 22 and a memcached 1.6 service container
+on host port 11311, matching docker-compose.yml and the test defaults.
+Windows and macOS runners cannot run service containers.
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01LaHppcejXbSsAH4BZXNsjV
+---
+ .github/workflows/build.yml | 22 +++++++++++++++++-----
+ 1 file changed, 17 insertions(+), 5 deletions(-)
+
+diff --git a/.github/workflows/build.yml b/.github/workflows/build.yml
+index f67cea6..fae26f7 100644
+--- a/.github/workflows/build.yml
++++ b/.github/workflows/build.yml
+@@ -2,19 +2,31 @@ name: build
+ 
+ on:
+   push:
+-    branches: [main]
++    branches: [master, main]
+   pull_request:
+-    branches: [main]
++    branches: [master, main]
+ 
+ jobs:
+   build:
+-    timeout-minutes: 6
++    timeout-minutes: 10
+     strategy:
+       fail-fast: false
+       matrix:
+-        os: [ubuntu-latest, windows-latest, macos-latest]
+         node-version: [24.x, 22.x]
+-    runs-on: ${{ matrix.os }}
++    runs-on: ubuntu-latest
++    services:
++      memcached:
++        image: memcached:1.6-alpine
++        ports:
++          - 11311:11211
++        options: >-
++          --health-cmd "echo version | nc -w 1 127.0.0.1 11211 | grep -q VERSION"
++          --health-interval 5s
++          --health-timeout 5s
++          --health-retries 20
++    env:
++      SENECA_TEST_MEMCACHED_HOST: 127.0.0.1
++      SENECA_TEST_MEMCACHED_PORT: 11311
+     steps:
+       - uses: actions/checkout@v4
+       - name: Use Node.js ${{ matrix.node-version }}
+-- 
+2.43.0
+
