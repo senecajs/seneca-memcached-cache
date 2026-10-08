@@ -17,3 +17,6 @@ node_modules
 *~
 
 package-lock.json
+test/coverage.html
+test/lcov.info
+coverage

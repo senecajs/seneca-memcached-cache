@@ -1,0 +1,13 @@
+name: seneca-memcached-cache
+
+services:
+  memcached:
+    image: memcached:1.6-alpine
+    container_name: seneca-memcached-cache-memcached
+    ports:
+      - "11311:11211"
+    healthcheck:
+      test: ["CMD-SHELL", "echo version | nc -w 1 127.0.0.1 11211 | grep -q VERSION"]
+      interval: 5s
+      timeout: 5s
+      retries: 20

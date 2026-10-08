@@ -116,7 +116,11 @@ module.exports = function memcached_cache(options) {
   })
 
   // connection needs to be closed
-  seneca.add({ role: 'seneca', cmd: 'close' }, cmds.close)
+  // Seneca 3 closes via role:seneca,cmd:close; Seneca 4 via sys:seneca,cmd:close.
+  var close_pattern = seneca.version.startsWith('3.')
+    ? 'role:seneca,cmd:close'
+    : 'sys:seneca,cmd:close'
+  seneca.add(close_pattern, cmds.close)
 
   // memcached
   seneca.add({ plugin: name, cmd: 'set' }, cmds.set)
