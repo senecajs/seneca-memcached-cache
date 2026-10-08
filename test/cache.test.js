@@ -21,7 +21,12 @@ var expect = Code.expect
 
 var tmx = parseInt(process.env.TIMEOUT_MULTIPLIER || 1, 10)
 
-var seneca = Seneca().test().quiet().use(Plugin)
+// Connection settings: defaults match docker-compose.yml (npm run services:up).
+var MEMCACHED_HOST = process.env.SENECA_TEST_MEMCACHED_HOST || '127.0.0.1'
+var MEMCACHED_PORT = process.env.SENECA_TEST_MEMCACHED_PORT || '11311'
+var plugin_options = { servers: [MEMCACHED_HOST + ':' + MEMCACHED_PORT] }
+
+var seneca = Seneca().test().quiet().use(Plugin, plugin_options)
 
 var standard = require('@seneca/cache-test')
 
@@ -155,9 +160,22 @@ describe('memcached', function () {
   })
 
   lab.it('close', async () => {
-    var seneca = Seneca().test().quiet().use(Plugin)
+    var seneca = Seneca().test().quiet().use(Plugin, plugin_options)
 
-    await seneca.ready()
+    // Callback form: await seneca.ready() can hang on an idle seneca 4.0.0-rc5.
+    await new Promise((resolve) => seneca.ready(resolve))
+    var mi = await seneca.post('role:cache,get:native')
+    var ended = false
+    var end = mi.end
+    mi.end = function () {
+      ended = true
+      return end.apply(this, arguments)
+    }
+    await seneca.close()
+    Assert.ok(ended, 'memcached connection was not closed')
+  })
+
+  lab.it('close shared instance', async () => {
     await seneca.close()
   })
 })
