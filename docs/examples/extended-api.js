@@ -11,7 +11,7 @@ async function main() {
     .quiet()
     .use(require('../..'), { servers: [host + ':' + port] })
 
-  await new Promise((resolve) => seneca.ready(resolve))
+  await seneca.ready()
   const p = 'plugin:memcached-cache'
 
   await seneca.post(p + ',cmd:flush')

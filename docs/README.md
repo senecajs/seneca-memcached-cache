@@ -19,7 +19,7 @@ The programs are in [examples](examples/).
 | ----- | ------ |
 | [Configure the connection](how-to/configure-the-connection.md) | Servers, expiry, memcached client options. |
 | [Use the extended memcached API](how-to/use-the-extended-api.md) | `plugin:memcached-cache` actions and the native client. |
-| [Run the tests locally](how-to/run-the-tests-locally.md) | Docker memcached, environment variables, Seneca 4 builds, Node 22. |
+| [Run the tests locally](how-to/run-the-tests-locally.md) | Docker memcached, environment variables, Seneca 4 builds. |
 | [Migrate from Seneca 3](how-to/migrate-from-seneca-3.md) | What changes for users of this plugin on Seneca 4. |
 
 ## Reference
@@ -59,7 +59,7 @@ The programs are in [examples](examples/).
 | `plugin:memcached-cache,cmd:gets` | action | [Messages](reference/messages.md#pluginmemcached-cachecmdgets) |
 | `plugin:memcached-cache,cmd:stats` | action | [Messages](reference/messages.md#pluginmemcached-cachecmdstats) |
 | `plugin:memcached-cache,cmd:flush` | action | [Messages](reference/messages.md#pluginmemcached-cachecmdflush) |
-| close hook (`sys:seneca,cmd:close` / `role:seneca,cmd:close`) | action | [Messages](reference/messages.md#close-hook) |
+| close hook (`sys:seneca,cmd:close`) | action | [Messages](reference/messages.md#close-hook) |
 | `SENECA_TEST_MEMCACHED_HOST`, `SENECA_TEST_MEMCACHED_PORT` | env (tests, examples) | [Run the tests locally](how-to/run-the-tests-locally.md) |
 
 The plugin defines no error codes, exports and command line flags.

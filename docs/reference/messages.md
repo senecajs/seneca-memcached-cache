@@ -2,8 +2,8 @@
 
 All replies below are with `legacy.scalar_results: false` (the default).
 Errors are those of the [memcached](https://www.npmjs.com/package/memcached)
-client, passed through unchanged. On Seneca 4 the caller receives that
-error itself (`err.message`), on Seneca 3 wrapped in a Seneca error.
+client, passed through unchanged. The caller receives that error itself
+(`err.message`).
 
 ## role:cache,cmd:set
 
@@ -87,7 +87,6 @@ the options. Called by Seneca; do not send it yourself.
 
 ## close hook
 
-The plugin adds a priority action on `sys:seneca,cmd:close` (Seneca 4)
-or `role:seneca,cmd:close` (Seneca 3). It calls `end()` on the client
-and then continues the close chain, so `seneca.close()` releases the
-connection.
+The plugin adds a priority action on `sys:seneca,cmd:close`. It calls
+`end()` on the client and then continues the close chain, so
+`seneca.close()` releases the connection.

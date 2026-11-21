@@ -18,13 +18,14 @@ against it can swap memcached for another cache plugin.
 ## Closing
 
 The client holds open sockets, so the plugin must end it when Seneca
-closes, or the Node.js process does not exit. Seneca 3 closes through
-`role:seneca,cmd:close`; Seneca 4 through `sys:seneca,cmd:close`. A
-`has()` check cannot tell them apart because Seneca 3 translates
-`sys:seneca` to `role:seneca`, so the plugin chooses the pattern from
-`seneca.version`.
+closes, or the Node.js process does not exit. Seneca 4 closes through
+`sys:seneca,cmd:close`, and the plugin adds a priority action on that
+pattern.
 
 ## Seneca 3 versus 4
+
+Version 3 of the plugin supports Seneca 4 only. Version 2.1 supports
+Seneca 3. What differs for users of the plugin:
 
 | | Seneca 3 | Seneca 4 |
 | - | -------- | -------- |

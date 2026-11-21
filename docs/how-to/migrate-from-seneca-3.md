@@ -2,10 +2,12 @@
 
 Goal: run an application that uses this plugin on Seneca 4.
 
-1. Upgrade to `@seneca/memcached-cache` 2.2.0 or later. Earlier versions
-   register their close hook only on `role:seneca,cmd:close`, which
-   `seneca@4.0.0-rc5` never calls, so `seneca.close()` left the
-   memcached connection open and the process did not exit.
+1. Upgrade to `@seneca/memcached-cache` 3 and Seneca 4, on Node.js 24 or
+   later: `npm install seneca@^4 @seneca/memcached-cache@^3`. Version 3
+   declares the peer dependency `seneca` `^4.0.0` and registers its close
+   hook on `sys:seneca,cmd:close`. Version 2.1 registers it on
+   `role:seneca,cmd:close`, which Seneca 4 still calls, with the
+   `SENECA_DEP_LEGACY_CLOSE_HOOK` warning.
 
 2. Move plugin options into `use()` or `options.plugin['memcached-cache']`.
    Seneca 4 ignores a top level `memcached-cache` options block.
@@ -14,9 +16,5 @@ Goal: run an application that uses this plugin on Seneca 4.
    rejected `post` receives the memcached client error itself, for
    example `err.message === 'Item is not stored'`, not
    `seneca: Action ... failed: ...`.
-
-4. If you `await seneca.ready()` on an otherwise idle instance with
-   `seneca@4.0.0-rc5`, use the callback form instead:
-   `await new Promise((resolve) => seneca.ready(resolve))`.
 
 The action patterns and replies are unchanged.

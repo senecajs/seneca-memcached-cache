@@ -1,4 +1,4 @@
-/* Copyright (c) 2012-2019 Seamus D'Arcy, Richard Rodger, and other contributors, MIT License. */
+/* Copyright (c) 2012-2026 Seamus D'Arcy, Richard Rodger, and other contributors, MIT License. */
 'use strict'
 
 var Memcached = require('memcached')
@@ -6,7 +6,7 @@ var Memcached = require('memcached')
 module.exports = function memcached_cache(options) {
   var seneca = this
 
-  options = seneca.util.deepextend(
+  options = seneca.util.deep(
     {
       expires: 3600,
       servers: ['127.0.0.1:11211'],
@@ -116,11 +116,7 @@ module.exports = function memcached_cache(options) {
   })
 
   // connection needs to be closed
-  // Seneca 3 closes via role:seneca,cmd:close; Seneca 4 via sys:seneca,cmd:close.
-  var close_pattern = seneca.version.startsWith('3.')
-    ? 'role:seneca,cmd:close'
-    : 'sys:seneca,cmd:close'
-  seneca.add(close_pattern, cmds.close)
+  seneca.add('sys:seneca,cmd:close', cmds.close)
 
   // memcached
   seneca.add({ plugin: name, cmd: 'set' }, cmds.set)
