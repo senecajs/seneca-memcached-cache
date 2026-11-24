@@ -1,6 +1,6 @@
 {
   "name": "@seneca/memcached-cache",
-  "version": "2.2.0",
+  "version": "3.0.0",
   "description": "memcached plugin for seneca",
   "main": "memcached-cache.js",
   "scripts": {
@@ -18,7 +18,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/senecajs/seneca-memcached-cache.git"
+    "url": "git+https://github.com/senecajs/seneca-memcached-cache.git"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "keywords": [
     "seneca",
@@ -37,11 +40,11 @@
   "devDependencies": {
     "@hapi/code": "^9.0.3",
     "@hapi/lab": "^26.0.1",
-    "@seneca/cache-test": "^2.0.0",
-    "@seneca/doc": "^4.0.0",
+    "@seneca/cache-test": "^3.0.0",
+    "@seneca/doc": "^9.0.0",
     "prettier": "^2.0.5",
-    "seneca": "^4.0.0-rc5",
-    "seneca-plugin-validator": "^0.6.1"
+    "seneca": "^4.0.0",
+    "seneca-plugin-validator": "^0.7.0"
   },
   "files": [
     "memcached-cache.js",
@@ -50,6 +53,9 @@
     "CHANGES.md"
   ],
   "peerDependencies": {
-    "seneca": ">=3 || >=4.0.0-rc5"
+    "seneca": "^4.0.0"
+  },
+  "engines": {
+    "node": ">=24"
   }
 }

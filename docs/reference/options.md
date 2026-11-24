@@ -2,7 +2,7 @@
 
 Set options with `seneca.use('@seneca/memcached-cache', { ... })` or
 `options.plugin['memcached-cache']`. Defaults are merged with
-`seneca.util.deepextend` in [memcached-cache.js](../../memcached-cache.js).
+`seneca.util.deep` in [memcached-cache.js](../../memcached-cache.js).
 
 | Option | Type | Default | Effect |
 | ------ | ---- | ------- | ------ |

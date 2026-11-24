@@ -5,8 +5,8 @@
 
 A Seneca plugin that implements the Common Cache API (`role:cache`) and
 the wider memcached command set with a [memcached](https://memcached.org/)
-server. Works with Seneca 3 and Seneca 4 (tested with `seneca@4.0.0-rc5`)
-on Node.js 24 and 22.
+server. Version 3 needs Seneca 4 and Node.js 24 or later. Seneca 3 users
+stay on `@seneca/memcached-cache@2`.
 
 [![npm version](https://img.shields.io/npm/v/@seneca/memcached-cache.svg)](https://npmjs.com/package/@seneca/memcached-cache)
 [![build](https://github.com/senecajs/seneca-memcached-cache/actions/workflows/build.yml/badge.svg)](https://github.com/senecajs/seneca-memcached-cache/actions/workflows/build.yml)
@@ -20,7 +20,7 @@ on Node.js 24 and 22.
 ## Install
 
 ```sh
-npm install seneca @seneca/memcached-cache
+npm install seneca@^4 @seneca/memcached-cache
 ```
 
 You also need a memcached server, for example
@@ -88,8 +88,7 @@ Full documentation index: [docs/README.md](docs/README.md).
 ## Contributing
 
 The [Senecajs org](https://github.com/senecajs/) encourages open
-participation. To run the tests (Node.js 24 or 22, with the Seneca 4
-prerelease devDependency):
+participation. To run the tests (Node.js 24 or later):
 
 ```sh
 npm install
@@ -109,7 +108,7 @@ written by Seamus D'Arcy and Richard Rodger. See [CHANGES.md](CHANGES.md).
 
 | Plugin version | Seneca | Node.js |
 | -------------- | ------ | ------- |
-| 2.2.x | 3, 4 (4.0.0-rc5 and later) | 24, 22 |
+| 3.x | 4 | 24 and later |
 | 2.1.x | 3 | 10 and later |
 
 License: [MIT](LICENSE).

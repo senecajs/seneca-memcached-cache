@@ -1,4 +1,4 @@
-/* Copyright (c) 2012-2019 Richard Rodger, MIT License */
+/* Copyright (c) 2012-2026 Richard Rodger, MIT License */
 'use strict'
 
 // run memcached for this to work!
@@ -162,8 +162,7 @@ describe('memcached', function () {
   lab.it('close', async () => {
     var seneca = Seneca().test().quiet().use(Plugin, plugin_options)
 
-    // Callback form: await seneca.ready() can hang on an idle seneca 4.0.0-rc5.
-    await new Promise((resolve) => seneca.ready(resolve))
+    await seneca.ready()
     var mi = await seneca.post('role:cache,get:native')
     var ended = false
     var end = mi.end

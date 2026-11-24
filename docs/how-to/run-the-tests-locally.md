@@ -2,7 +2,7 @@
 
 Goal: run the test suite against a real memcached server.
 
-1. Use Node.js 24 (Node.js 22 is also supported) and install:
+1. Use Node.js 24 or later and install:
 
    ```sh
    npm install

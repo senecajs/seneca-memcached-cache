@@ -10,7 +10,7 @@ async function main() {
     .quiet()
     .use(require('../..'), { servers: [host + ':' + port], expires: 60 })
 
-  await new Promise((resolve) => seneca.ready(resolve))
+  await seneca.ready()
 
   console.log(await seneca.post('role:cache,cmd:set', { key: 'k1', val: 'v1' }))
   console.log(await seneca.post('role:cache,cmd:get', { key: 'k1' }))

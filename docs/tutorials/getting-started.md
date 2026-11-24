@@ -6,7 +6,7 @@ store, read, increment and delete values.
 ## 1. Install
 
 ```sh
-npm install seneca @seneca/memcached-cache
+npm install seneca@^4 @seneca/memcached-cache
 ```
 
 You need a running memcached server. With Docker, from a clone of this
@@ -34,7 +34,7 @@ async function main() {
     .quiet()
     .use('@seneca/memcached-cache', { servers: [host + ':' + port], expires: 60 })
 
-  await new Promise((resolve) => seneca.ready(resolve))
+  await seneca.ready()
 
   console.log(await seneca.post('role:cache,cmd:set', { key: 'k1', val: 'v1' }))
   console.log(await seneca.post('role:cache,cmd:get', { key: 'k1' }))
@@ -58,7 +58,7 @@ main()
 node getting-started.js
 ```
 
-Output with `seneca@4.0.0-rc5`:
+Output with Seneca 4:
 
 ```
 { key: 'k1' }
